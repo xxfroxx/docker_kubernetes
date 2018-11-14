@@ -1,0 +1,51 @@
+$ docker-compose up
+WARNING: The Docker Engine you're using is running in swarm mode.
+
+Compose does not use swarm mode to deploy services to multiple nodes in a swarm. All containers will be scheduled on the current node.
+
+To deploy your application across the swarm, use `docker stack deploy`.
+
+Starting practica-compose_node-app_1     ... done
+Starting practica-compose_redis-server_1 ... done
+Attaching to practica-compose_redis-server_1, practica-compose_node-app_1
+redis-server_1  | 1:C 14 Nov 2018 12:51:15.812 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo
+redis-server_1  | 1:C 14 Nov 2018 12:51:15.812 # Redis version=5.0.1, bits=64, commit=00000000, modified=0, pid=1, just started
+redis-server_1  | 1:C 14 Nov 2018 12:51:15.812 # Warning: no config file specified, using the default config. In order to specify a config file use redis-server /path/to/redis.conf
+redis-server_1  | 1:M 14 Nov 2018 12:51:15.816 * Running mode=standalone, port=6379.
+redis-server_1  | 1:M 14 Nov 2018 12:51:15.816 # WARNING: The TCP backlog setting of 511 cannot be enforced because /proc/sys/net/core/somaxconn is set to the lower value of 128.
+redis-server_1  | 1:M 14 Nov 2018 12:51:15.816 # Server initialized
+redis-server_1  | 1:M 14 Nov 2018 12:51:15.816 # WARNING overcommit_memory is set to 0! Background save may fail under low memory condition. To fix this issue add'vm.overcommit_memory = 1' to /etc/sysctl.conf and then reboot or run the command 'sysctl vm.overcommit_memory=1' for this to take effect.
+redis-server_1  | 1:M 14 Nov 2018 12:51:15.816 # WARNING you have Transparent Huge Pages (THP) support enabled in your kernel. This will create latency and memoryusage issues with Redis. To fix this issue run the command 'echo never > /sys/kernel/mm/transparent_hugepage/enabled' as root, and add it to your /etc/rc.local inorder to retain the setting after a reboot. Redis must be restarted after THP is disabled.
+redis-server_1  | 1:M 14 Nov 2018 12:51:15.816 * DB loaded from disk: 0.000 seconds
+redis-server_1  | 1:M 14 Nov 2018 12:51:15.816 * Ready to accept connections
+node-app_1      |
+node-app_1      | > @ start /app
+node-app_1      | > node index.js
+node-app_1      |
+node-app_1      | /app/index.js:6
+node-app_1      |     host 'redis-server'
+node-app_1      |          ^^^^^^^^^^^^^^
+node-app_1      |
+node-app_1      | SyntaxError: Unexpected string
+node-app_1      |     at new Script (vm.js:80:7)
+node-app_1      |     at createScript (vm.js:264:10)
+node-app_1      |     at Object.runInThisContext (vm.js:316:10)
+node-app_1      |     at Module._compile (internal/modules/cjs/loader.js:670:28)
+node-app_1      |     at Object.Module._extensions..js (internal/modules/cjs/loader.js:718:10)
+node-app_1      |     at Module.load (internal/modules/cjs/loader.js:605:32)
+node-app_1      |     at tryModuleLoad (internal/modules/cjs/loader.js:544:12)
+node-app_1      |     at Function.Module._load (internal/modules/cjs/loader.js:536:3)
+node-app_1      |     at Function.Module.runMain (internal/modules/cjs/loader.js:760:12)
+node-app_1      |     at startup (internal/bootstrap/node.js:308:19)
+node-app_1      | npm ERR! code ELIFECYCLE
+node-app_1      | npm ERR! errno 1
+node-app_1      | npm ERR! @ start: `node index.js`
+node-app_1      | npm ERR! Exit status 1
+node-app_1      | npm ERR!
+node-app_1      | npm ERR! Failed at the @ start script.
+node-app_1      | npm ERR! This is probably not a problem with npm. There is likely additional logging output above.
+node-app_1      |
+node-app_1      | npm ERR! A complete log of this run can be found in:
+node-app_1      | npm ERR!     /root/.npm/_logs/2018-11-14T12_51_16_535Z-debug.log
+practica-compose_node-app_1 exited with code 1
+^CGracefully stopping... (press Ctrl+C again to force)
